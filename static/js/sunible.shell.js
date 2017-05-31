@@ -33,8 +33,63 @@ sunible.shell = (function () {
 		},
 		jqueryMap = {},
 
-		setJqueryMap, initModule, onHashChange, copyAnchorMap, changeAnchorPart;
-
+		setJqueryMap, initModule, onHashChange, copyAnchorMap, changeAnchorPart, onClickSwitch;
+	// Utility Method for URI Anchor
+	changeAnchorPart = function (arg_map) {
+		var
+			anchor_map_revise = copyAnchorMap(),
+			bool_return = true,
+			key_name, key_name_dep;
+		// Merge changes into anchor map
+		KEYVAL:
+		for (key_name in arg_map) {
+			if (arg_map.hasOwnProperty(key_name)) {
+				if (key_name.indexOf('_') === 0) {continue KEYVAL;}
+				anchor_map_revise[key_name] = arg_map[key_name];
+				key_name_dep = '_' + key_name;
+				if (arg_map[key_name_dep]) {
+					anchor_map_revise[key_name_dep] = arg_map[key_name_dep];
+				}
+				else {
+					delete anchor_map_revise[key_name_dep];
+					delete	anchor_map_revise['_s' + key_name_dep];
+				}
+			}
+		}
+	// Attempt to update URI, revert if unsucessful
+		try {
+			$.uriAnchor.setAnchor(anchor_map_revise);
+		}
+		catch(error) {
+			$.uriAnchor.setAnchor(stateMap.anchor_map,null,true);
+			bool_return = false;
+		}
+		return bool_return;
+	};
+	onHashchange = function (event) {
+		var
+			anchor_map_previous = copyAnchorMap(),
+			anchor_map_proposed,
+			_s_chat_previous, _s_chat_proposed,
+			s_chat_proposed;
+		 // attem to parse anchor
+		 try { anchor_map_proposed = $.uriAnchor.makeAnchorMap();}
+		 catch (error) {
+		 	$.uriAnchor.setAnchor(anchor_map_previous, null, true);
+		 	return false;
+		 }
+		 stateMap.anchor_map = anchor_map_proposed;
+		 // convience vars
+		 _s_chat_previous = anchor_map_previous._s_chat;
+		 _s_chat_proposed = anchor_map_proposed._s_chat;
+		 // Begin adjust chat component if changed
+		 if ( ! anchor_map_previous
+		 	|| _s_chat_previous !== _s_chat_proposed) {
+		 	s_chat_proposed = anchor_map_proposed.chat;
+		 // Optional callbacks if URI changes
+		 }
+		 return false;
+	}
 	// Set DOM Methods for set jqueryMap
 	setJqueryMap = function (){
 		var $container = stateMap.$container;
@@ -50,6 +105,5 @@ sunible.shell = (function () {
 		sunible.landing.configModule({});
 		sunible.landing.initModule($container.find('.info'));
 	};
-	// Bind events
 	return { initModule: initModule };
 }());
