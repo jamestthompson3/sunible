@@ -5,7 +5,7 @@
 .page {
 	display: none; /* this is used to hide all pages. They are shown with javascript */
 	padding-top: 0;
-	min-height: 400px;
+	min-height: 300px;
 	min-width: 400px;
 }
 .page.is_shown { display: block; }
@@ -14,17 +14,6 @@
 header.page_header,
 footer.page_footer {
 	display: none;
-}
-
-.page_header .btn.call_us[disabled] {
-	display: inline-block;
-	overflow: hidden;
-	vertical-align: middle;
-	margin: 5px 10px;
-	background-color: #C0392B;
-	opacity: 1;
-	font-size: 12px;
-	line-height: 14px;
 }
 
 .page_header .overlay_beta .text {
@@ -61,90 +50,43 @@ footer.page_footer {
 		color: #34495E;
 	}
 
-/*.question.why_solar { width: 100px; }*/
+.question.why_solar { width: 85px; }
 
 /* HOMEPAGE */
 
-.page.homepage h1 {
-	color: #fcd728;
-	font-size: 39px;
-	text-align: center;
-}
-
-.page.homepage { min-height: 456px; }
+.page.homepage { min-height: 250px; }
 
 .page.homepage .teaser.ad.container {
 	display: block;
 	overflow: hidden;
 	position: absolute;
-	width: 792px;
-	height: 440px;
+	width: 900px;
+	height: 350px;
 	left: 50%;
-	top: 50%;
-	margin-left: -396px;
-	/*
-	while header and footer aren't the same height
-	and validation message of zip field should look like overlay
-	
-	H = header height til logo end = 110px
-	F = footer height = 51px
-	V = validation message height = 20px;
-	margin-top = -CONTROL_HEIGHT/2 + (H-F)/2 + V = -220+(55/2)+20 = -220+23+20 = -177;
-	*/
-
-	margin-top: -177px;
+	top: 0%;
+	margin-left: -450px;
+	margin-top: 200px;
 }
 
 	.page.homepage .teaser.ad.container .teaser {
 		text-decoration: none;
-		margin-bottom: 20px;
 	}
 
 	.page.homepage .teaser,
 	.page.homepage .zip.container {
 		display: block;
+		overflow: hidden;
 		text-align: center;
+		text-transform: uppercase;
 	}
 
-		.page.homepage .teaser h1 {
-			color: #34495E;
-			font-size: 47px;
-			margin-bottom: 20px;
-			margin-top: 0;
+		.page.homepage .teaser .save,
+		.page.homepage .teaser .money_with,
+		.page.homepage .teaser .solar {
+			line-height: 100%;
+			display: block;
+			overflow: hidden;
 		}
-
-			.page.homepage .teaser h1 em {
-				color: #fcd728;
-				font-style: normal;}
-
-		.page.homepage .teaser .block {
-			background-color: #34495E;
-			border-radius: 15px;
-			display: inline-block;
-			vertical-align: top;
-			width: 180px;
-			color: #ECF0F1;
-			margin-left: 40px;
-		}
-
-		.page.homepage .teaser .block.see { margin-left: 0;}
-
-			.page.homepage .teaser .block h2 {
-				text-transform: uppercase;
-				color: white;
-			}
-
-			.page.homepage .teaser .block .icon {
-				max-height: 100px;
-				margin: 10px 0;
-				border: none;
-			}
-
-			.page.homepage .teaser .block p {
-				line-height: 150%;
-			}
-
-		.page.homepage .teaser form { padding: 0;}
 
 		.page.homepage .teaser .save {
 			font-size: 128px;
@@ -177,7 +119,7 @@ footer.page_footer {
 		.page.homepage .zip.container .btn.search.providers.zip {
 			position: absolute;
 			right: 2px;
-			top: 0px;
+			top: 10px;
 			padding: 4px 16px 4px 16px;
 		}
 
@@ -210,7 +152,7 @@ footer.page_footer {
 	.page.social_proof .social_info_by_zip .solar_info {
 		display: block;
 		position: absolute;
-		left: 39%;
+		left: 49%;
 		right: 0;
 		top: 50%;
 		margin-top: -175px;
@@ -301,7 +243,7 @@ footer.page_footer {
 				margin-left: 5%;*/
 
 				display: inline-block;
-				width: 200px;
+				width: 150px;
 				vertical-align: top;
 				margin-left: 100px;
 				font-size: 18px;
@@ -393,10 +335,9 @@ footer.page_footer {
 .page.dashboard {
 	padding-right: 170px;
 	padding-top: 0px;
-	padding-bottom: 50px;
 }
 
-	.page.dashboard .open_installer_page { display: none; }
+	.page.dashboard .open_registration_page { display: none; }
 
 	.page.dashboard .providers.container header {
 		/*font-family: "Lato", sans-serif;
@@ -450,7 +391,6 @@ footer.page_footer {
 
 			.page.dashboard .providers.container .providers.list.grid td.checkboxes,
 			.page.dashboard .providers.container .providers.list.grid td.cost,
-			.page.dashboard .providers.container .providers.list.grid td.avg_cost,
 			.page.dashboard .providers.container .providers.list.grid td.number_of_homes_installed {
 				text-align: center;
 			}
@@ -512,21 +452,13 @@ footer.page_footer {
 	.page.dashboard header h1 { margin-top: 0; }
 
 	.page.dashboard .number_of_selected.providers {
-		/*width: 160px;
+		width: 160px;
 		text-align: center;
 		font-size: 24px;
 		line-height: 26px;
 		position: absolute;
 		right: 5%;
 		bottom: 69px;
-		padding-bottom: 40px;*/
-		width: 160px;
-		text-align: center;
-		font-size: 24px;
-		line-height: 26px;
-		position: fixed;
-		right: 5%;
-		top: 211px;
 		padding-bottom: 40px;
 	}
 			.page.dashboard .number_of_selected.providers .block .max_length.message { font-size: 14px; }
@@ -572,32 +504,27 @@ footer.page_footer {
 	min-width: 42px;
 }
 
-.providers.list.grid th.cost,
-.providers.list.grid td.cost {
+.providers.list.grid th.cost {
 	width: 15% !important;
-	min-width: 100px;
+	min-width: 126px;
 }
 
-.providers.list.grid th.avg_cost,
-.providers.list.grid td.avg_cost {
-	width: 10% !important;
-	min-width: 50px;
+.providers.list.grid td.cost {
+	width: 15% !important;
+	min-width: 126px;
 }
 
 .providers.list.grid td.number_of_homes_installed,
 .providers.list.grid th.number_of_homes_installed {
 	width: 15% !important;
-	min-width: 120px;
+	min-width: 125px;
 }
 
 .providers.list.grid td.rating,
 .providers.list.grid th.rating {
 	width: 15% !important;
-	min-width: 100px;
+	min-width: 125px;
 }
-
-.providers.list.grid  .row:before,
-.providers.list.grid  .row:after { content: ''; display: none;}
 
 .providers.list.grid th.rating .text { font-size: 12px; }
 
@@ -655,33 +582,9 @@ footer.page_footer {
 	border-bottom-right-radius: 6px;
 }
 
-.page.dashboard .dataTables_wrapper.no_scroll .content:before,
-.page.dashboard .dataTables_wrapper.no_scroll .content:after {
-	content: "";
-	display: block;
-	/*overflow: hidden;*/
-	position: static;
-	height: 6px;
-	background-color: #34495E;
-}
-
-
-.page.dashboard .dataTables_wrapper.no_scroll .content:before {
-	border-top-left-radius: 6px;
-	border-top-right-radius: 6px;
-}
-
-.page.dashboard .dataTables_wrapper.no_scroll .content:after {
-	border-bottom-left-radius: 6px;
-	border-bottom-right-radius: 6px;
-}
-
-
 /* REGISTRATION */
 
-.page.registration { min-height: 460px; }
-
-.page.registration .inner_content {
+.page.registration {
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -698,12 +601,12 @@ footer.page_footer {
 }
 
 	.page.registration .registration_form .field.first_name { width: 170px; }
-	.page.registration .registration_form .field.last_name { width: 303px; }
+	.page.registration .registration_form .field.last_name { width: 170px; }
+	.page.registration .registration_form .field.nickname { width: 150px; }
 	.page.registration .registration_form .field.street_address { width: 333px; }
 	.page.registration .registration_form .field.city { width: 150px; }
 	.page.registration .registration_form .field.phone_number { width: 150px; }
 	.page.registration .registration_form .field.email { width: 403px; }
-	.page.registration .registration_form .field.nickname { width: 100px; }
 	.page.registration .registration_form .field.property_type { width: 100px; }
 	.page.registration .registration_form .field.cost_per_month { width: 80px; }
 	.page.registration .registration_form .field.people_nature { width: 100px; }
@@ -718,18 +621,6 @@ footer.page_footer {
 		margin-right: auto;
 	}
 
-}
-
-
-/* FAQS */
-
-      
-ul { margin: 0; padding: 0; }
-ul li { margin: 0; padding: 0; list-style: none; cursor: pointer; }
-ul li a { font-size:13.0pt; font-family: "bariol_regular", sans-serif; color:#195072; text-decoration: none; }
-ul li a:hover { font-size:13.0pt; font-family: "bariol_regular", sans-serif; color:#F1C40F; text-decoration: none; }
-ul li div { display: none; }
-
 /* THANK YOU */
 
 .page.thank_you h1 {
@@ -738,26 +629,12 @@ ul li div { display: none; }
 	font-size: 48px;
 }
 
-.page.thank_you_reg h1 {
-	text-align: left;
-	padding-bottom: 20px;
-	font-size: 32px;
-}
-
 .page.thank_you .meanwhile { text-align: center; font-size: 18px; }
-
-.page.thank_you_reg .meanwhile { text-align: center; font-size: 18px; }
 
 .page.thank_you .additional_stuff {
 	margin: 30px auto;
 	overflow: hidden;
 	width: 600px;
-}
-
-.page.thank_you_reg .additional_stuff {
-	margin: 20px auto;
-	overflow: hidden;
-	width: 850px;
 }
 
 	.page.thank_you .additional_stuff .block {
@@ -777,7 +654,6 @@ ul li div { display: none; }
 		text-align: center;
 		margin: 20px 0;
 	}
-        
 
 		.page.thank_you .additional_stuff .block p {
 			font-size: 18px;
@@ -790,7 +666,7 @@ ul li div { display: none; }
 
 /* MODAL PAGES */
 
-#modal-page-sign_up { width: 625px; }
+#modal-page-sign_up { width: 600px; }
 
 #modal-page-sign_up button.sign_up {
 	margin-left: auto;
@@ -814,21 +690,6 @@ ul li div { display: none; }
 	width: 600px;
 }
 
-#modal-faqs,
-#modal-about_us,
-#modal-jobs,
-#modal-blog {
-        position: absolute;
-	top: 50%;
-	left: 50%;  
-	width: 800px;
-	height: 600px;
-	font-family: "bariol_regular", sans-serif;
-	font-size: 16px;
-	margin-top: -20px;
-	margin-left: -400px;  
-}
-
 #modal-terms_of_service .nano,
 #modal-privacy_policy .nano {
 	width: auto;
@@ -837,29 +698,11 @@ ul li div { display: none; }
 	margin: 0px;
 }
 
-#modal-faqs .nano,
-#modal-about_us .nano,
-#modal-jobs .nano,
-#modal-blog {
-	width: auto;
-	height: 500px;
-	padding: 0;
-	margin: 0px;
-}
-
 #modal-terms_of_service .nano .content,
-#modal-privacy_policy .nano .content,
-#modal-faqs .nano .content,
-#modal-about_us .nano .content,
-#modal-blog .nano .content,
-#modal-jobs .nano .content { right: 15px;}
+#modal-privacy_policy .nano .content { right: 15px;}
 
 #modal-terms_of_service .modal-body,
-#modal-privacy_policy .modal-body,
-#modal-faqs .modal-body,
-#modal-about_us .modal-body,
-#modal-blog .modal-body,
-#modal-jobs .modal-body { padding-right: 0; }
+#modal-privacy_policy .modal-body { padding-right: 0; }
 
 #modal-page-contact_us .field.name { width: 200px;}
 #modal-page-contact_us .field.email { width: 300px;}
@@ -896,12 +739,6 @@ ul li div { display: none; }
 
 
 .ie-10 .page.thank_you h1 {
-	margin-bottom: 0;
-	line-height: 20px;
-	padding-bottom: 10px;
-}
-
-.ie-10 .page.thank_you_reg h1 {
 	margin-bottom: 0;
 	line-height: 20px;
 	padding-bottom: 10px;

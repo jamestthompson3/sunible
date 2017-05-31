@@ -6,15 +6,14 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<title>Sunible</title>
 <!-- Stylessheets -->
-<link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
-<link rel="stylesheet" type="text/css" href="css/bootstrap-modal.css"/>
-<link rel="stylesheet" type="text/css" href="css/flat-ui.css"/>
-<link rel="stylesheet" type="text/css" href="css/nanoscroller.css"/>
-<link rel="stylesheet" type="text/css" href="css/general.css"/>
-<link rel="stylesheet" type="text/css" href="css/fonts.css"/>
-<link rel="stylesheet" type="text/css" href="css/forms.css"/>
-<link rel="stylesheet" type="text/css" href="css/layout.css"/>
-<link rel="stylesheet" type="text/css" href="css/pages.css"/>
+<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-modal.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/flat-ui.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/nanoscroller.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/general.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/fonts.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/forms.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/layout.css' %}">
 <link href='https://api.mapbox.com/mapbox-gl-js/v0.36.0/mapbox-gl.css' rel='stylesheet' />
 
 
@@ -24,6 +23,8 @@
 <!-- Our javascript -->
 <script src="{% static 'js/sunible.js' %}"></script>
 <script src="{% static 'js/sunible.shell.js' %}"></script>
+<script src="{% static 'js/sunible.util.js' %}"></script>
+<script src="{% static 'js/sunible.landing.js' %}"></script>
 <script>
 	$ (function () {
 		sunible.initModule($('#pages'));

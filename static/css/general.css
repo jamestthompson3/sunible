@@ -17,8 +17,11 @@ a { color: #2980B9;}
 a:hover { color: #fcd728; }
 
 h1 {
-	color: #fcd728;
+	color: #34495e;
 	font-size: 39px;
+}
+em {
+	color: #FDDC34;
 }
 
 	h1 small {
@@ -98,6 +101,7 @@ footer,
 
 	footer.page_footer .bottom.navigation  {
 		text-align: center;
+		margin-top: 3em;
 	}
 
 		header.page_header .questions .question,
@@ -107,10 +111,6 @@ footer,
 			vertical-align: middle;
 			margin: 5px 10px;
 		}
-
-		footer.page_footer .bottom.navigation .social { margin: 5px; }
-
-			footer.page_footer .bottom.navigation .social .icon { width: 24px; height: 24px; }
 
 	footer.page_footer .copyright {
 		display: block;
@@ -152,9 +152,11 @@ footer,
 .block {
 	display: block;
 	overflow: hidden;
-	background-color: #ecf0f1;
+	background-color: #34495E;
 	border-radius: 6px;
 	padding: 15px;
+	color: #ecf0f1;
+	margin-right: 0px;
 }
 
 .counter,

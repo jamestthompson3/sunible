@@ -2,7 +2,7 @@ sunible.shell = (function () {
 	// ---- Module scope variables ----
 	var
 		configMap = {
-			anchor_schema_map : {},
+			anchor_schema_map : {social_proof: true, installers: true},
 			main_html : String()
 			+'<header class="page_header homepage dashboard social_proof registration message thank_you thank_you_reg">'
 				+'<div class="questions">'
@@ -13,18 +13,15 @@ sunible.shell = (function () {
 				+'</div>'
 				+'<a href="/" class="logo sunible"><img src="static/images/logo_sunible.png"/></a>'
 			+'</header>'
-
+			+'<div class ="info"></div>'
 			+'<div class="footer-margin"></div>'
-			+'<footer class="page_footer homepage social_proof dashboard registration message thank_you thank_you_reg">' <!-- footer has those classes to be toggled with those pages.  With that approach, no need to duplicate the footer on each page we have it-->
+			+'<footer class="page_footer homepage social_proof dashboard registration message thank_you thank_you_reg">'
 					+'<nav class="bottom navigation">'
 						+'<a href="#" class="launcher open faqs">FAQs</a>'
 						+'<a href="http://blog.sunible.com" target="_blank">Blog</a>'
 						+'<a href="#" class="launcher open contact_us">Contact</a>'
 						+'<a href="#" class="launcher open about_us">About Us</a>'
 						+'<a href="#" class="launcher open terms_of_service">Terms</a>'
-						+'<a href="http://www.facebook.com/sunible" target="_blank" class="launcher social facebook"><img class="icon" src="static/images/icons/icon_facebook.png}" alt=""/></a>'
-						+'<a href="http://www.twitter.com/sunible" target="_blank" class="launcher social twitter"><img class="icon" src="static/images/icons/icon_twitter.png" alt=""/></a>'
-						+'<a href="http://www.linkedin.com/company/sunible" target="_blank" class="launcher social linkedin"><img class="icon" src="static/images/icons/icon_linkedin.png" alt=""/></a>'
 					+'</nav>'
 					+'<span class="copyright">&copy; Sunible Inc.  2017</span>'
 			+'</footer>'
@@ -36,7 +33,7 @@ sunible.shell = (function () {
 		},
 		jqueryMap = {},
 
-		setJqueryMap, initModule;
+		setJqueryMap, initModule, onHashChange, copyAnchorMap, changeAnchorPart;
 
 	// Set DOM Methods for set jqueryMap
 	setJqueryMap = function (){
@@ -50,6 +47,9 @@ sunible.shell = (function () {
 		stateMap.$container = $container;
 		$container.html(configMap.main_html);
 		setJqueryMap();
+		sunible.landing.configModule({});
+		sunible.landing.initModule($container.find('.info'));
 	};
+	// Bind events
 	return { initModule: initModule };
 }());
