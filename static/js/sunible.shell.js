@@ -102,8 +102,10 @@ sunible.shell = (function () {
 		stateMap.$container = $container;
 		$container.html(configMap.main_html);
 		setJqueryMap();
+		
 		sunible.landing.configModule({});
 		sunible.landing.initModule($container.find('.info'));
+
 	};
 	return { initModule: initModule };
 }());

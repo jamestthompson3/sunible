@@ -34,13 +34,23 @@ sunible.landing = (function () {
 		stateMap = {$container: null},
 		jqueryMap = {},
 
-		setJqueryMap, configModule, initModule;
+		setJqueryMap, configModule, initModule, getInstallerByZip;
 	// DOM Methods
 	setJqueryMap = function() {
 		var $container = stateMap.$container;
 		jqueryMap = {
-			$container: $container
+			$container: $container,
+			$submit: $container.find('#homepage-search_providers_by_zip-button'),
+			$input: $container.find('#homepage-field-zip_code')
 		};
+	};
+	getInstallerByZip = function(event) {
+	if (/(^\d{5}$)|(^\d{5}-\d{4}$)/.test(jqueryMap.$input.val()) === true) {
+		
+	}
+	else {
+		alert("Please enter a Valid Zip")
+	}
 	};
 	// Public config methods
 	configModule = function (input_map) {
@@ -55,6 +65,9 @@ sunible.landing = (function () {
 		$container.html(configMap.main_html);
 		stateMap.$container = $container;
 		setJqueryMap();
+		
+		jqueryMap.$submit
+			.click(getInstallerByZip);
 		return true;
 	};
 	return {
