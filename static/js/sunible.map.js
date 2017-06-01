@@ -52,8 +52,16 @@ sunible.map = (function () {
 		// DOM METHODS
 		// Create a method to get the geodata from the backend
 		getGeoData = function (zip) {
-			
-		}
+			var zip = zip
+			$.ajax({
+				url:"geozipresponse",
+				datatype: 'json',
+				data: {'zip_code': zip},
+				success: function (data) {
+					console.log(data[0].fields)
+				}
+			});
+		};
 		generateMap = function (data) {
 			mapboxgl.accessToken = 'pk.eyJ1Ijoic3VuaWJsZSIsImEiOiJjajNlcHhkb2cwMGw3MndvZWNtc3JiOXdyIn0.gFGcHN9P5Qh6dqPFzFbwog';
 			var map = new mapboxgl.Map({

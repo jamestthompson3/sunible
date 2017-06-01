@@ -45,8 +45,9 @@ sunible.landing = (function () {
 		};
 	};
 	getInstallerByZip = function(event) {
-	if (/(^\d{5}$)|(^\d{5}-\d{4}$)/.test(jqueryMap.$input.val()) === true) {
-		
+		var zip_input = jqueryMap.$input.val()
+	if (/(^\d{5}$)|(^\d{5}-\d{4}$)/.test(zip_input) === true) {
+		sunible.map.initModule(jqueryMap.$container,zip_input)
 	}
 	else {
 		alert("Please enter a Valid Zip")
