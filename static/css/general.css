@@ -38,7 +38,11 @@ em {
 
 h2 { font-size: 28px; }
 
-table { width: 100%; }
+table { 
+	width: 100%;
+	position: relative;
+	top: 3em;
+}
 
 	table th.sorting,
 	table th.sorting_desc,
@@ -47,6 +51,13 @@ table { width: 100%; }
 thead {
 	background-color: #34495E;
 	color: #ECF0F1;
+}
+th {
+	font-size: 20px;
+}
+tr {
+	font-size: 15px;
+	margin-top: 15px;
 }
 
 	thead th { font-size: 15px; }

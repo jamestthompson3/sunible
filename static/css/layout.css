@@ -56,8 +56,8 @@ header.page_header .questions {
 	margin: 20px;
 	float: left;
 }
-.ad {
-	margin: 0px;
+.block.map {
+	float: right;
 }
 .teaser {
 	margin-left: 8em;
