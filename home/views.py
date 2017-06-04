@@ -30,3 +30,9 @@ def populateInstallerList(request):
 	query = Installer.objects.filter(service_county=query[0].county).distinct('installer')
 	data = serializers.serialize('json',query)
 	return HttpResponse(data,'json')
+
+def installerAvgCost(request):
+	installer = request.GET["installer"]
+	query = AveragePPW.objects.filter(installer=installer)
+	data = serializers.serialize('json',query)
+	return HttpResponse(data,'json')

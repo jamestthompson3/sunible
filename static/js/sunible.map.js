@@ -38,7 +38,7 @@ sunible.map = (function () {
 							'</th>' +
 						'</tr>' +
 					'</thead>' +
-					'<tbody class="installername"></tbody>' +
+					'<tbody><tr class="installername"></tr></tbody>' +
 				'</table>'
 		},
 		stateMap = {
@@ -46,7 +46,7 @@ sunible.map = (function () {
 
 		},
 		jqueryMap ={},
-		setJqueryMap, generateMap, getGeoData, populateInstallers, initModule;
+		setJqueryMap, generateMap, getGeoData, populateInstallers, installerAvgCost, initModule;
 
 		// Utility Methods
 		setJqueryMap = function () {
@@ -90,20 +90,39 @@ sunible.map = (function () {
 				data: {'zip_code': zip},
 				success: function (data) {
 					if (data[0] !== undefined) {
-						console.log(data[0].fields)
+						
 						var area = "Great News! "+data[0].fields.service_county+" County"+" is very "
 						jqueryMap.$container.find(".area").append(area+'<em>Sunible!</em>')
 						for (var i = 0; i < data.length; i++)
 						{
-							var installer = '<tr><td width="50px" height="50px" align="left" style="padding-top: 12px;">'+data[i].fields.installer+'</td></tr>'
-							jqueryMap.$container.find(".installername").append(installer);
+							var installer = '<tr id="install"><td width="50px" height="50px" align="center" style="padding-top: 12px;">'+data[i].fields.installer+'</td></tr>'
+							jqueryMap.$container.find("tbody").append(installer);
+							
 						}
 					}
 					else {
 						jqueryMap.$container.find(".inyourarea").text("We don't seem to find any installers in your area.")
 					}
+					installerAvgCost(data);
 				}
 			});
+		}
+		// Populate the table with the installer's average cost
+		installerAvgCost = function(source) {
+			var source = source
+			for (var i = 0; i < source.length; i++) {
+				$.ajax({
+					url: "installavgcost",
+					datatype: 'json',
+					data: {'installer': source[i].fields.installer},
+					success: function (data) {
+						var number_data = data[0].fields.avg_cost
+						var avg_cost = '<td></td><td width="50px" height="50px" align="left" style="padding-top: 12px;">'+number_data.toPrecision(3);+'</td>'
+						jqueryMap.$container.find(".install").append();
+					}
+				});
+			}
+			
 		}
 		// Public Methods
 		initModule = function ($container,zip) {
