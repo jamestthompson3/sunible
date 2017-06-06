@@ -511,7 +511,7 @@ footer.page_footer {
 
 .providers.list.grid td.cost {
 	width: 15% !important;
-	min-width: 126px;
+	min-width: 80px;
 }
 
 .providers.list.grid td.number_of_homes_installed,
@@ -523,7 +523,7 @@ footer.page_footer {
 .providers.list.grid td.rating,
 .providers.list.grid th.rating {
 	width: 15% !important;
-	min-width: 125px;
+	min-width: 80px;
 }
 
 .providers.list.grid th.rating .text { font-size: 12px; }

@@ -80,6 +80,8 @@ tr {
 	thead .tooltip.bottom .tooltip-arrow,
 	thead .tooltip.top .tooltip-arrow {
 		border-bottom-color: #fcd728;
+		background: #34495e;
+    	color: #C6CED3;
 	}
 
 	thead .tooltip.bottom .tooltip-inner,
@@ -92,7 +94,9 @@ tr {
 	display: block;
 	overflow: hidden;
 }
-
+.questions {
+	cursor: help;
+}
 .container { width: auto; }
 
 header,
@@ -158,7 +162,6 @@ footer,
 	-o-transition: margin-top 0.15s linear;
 	transition: margin-top 0.15s linear;
 }
-
 
 .block {
 	display: block;

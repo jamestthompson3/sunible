@@ -16,21 +16,25 @@ sunible.map = (function () {
 							// '<th class="checkboxes">' +
 							// 	'<span class="text">Request Quote</span>' +
 							// '</th>' +
-							'<th class="name">' +
-								'<span class="text">Solar Providers</span>' +
+							'<th class="name" align="left" role="columnheader" aria-sort="ascending">' +
+								'<span class="text">Solar Providers </span>' +
 								'<span class="question_mark light" data-toggle="tooltip" data-placement="bottom" title="These providers have installed solar in at least one home every month in your County recently.">?</span>' + 
 							'</th>' +
-							'<th class="cost">' +
-								'<span class="text">Price Category</span>' +
-								'<span class="question_mark light" data-toggle="tooltip" data-placement="bottom" title="Based on the average cost of systems installed in your County, Value = Bottom 33%, Standard = Middle 33% Premium = Top 33%. Please read FAQ #3 for a more detailed explanation.">?</span>' + 
-							'</th>' +
-							'<th class="avg_cost">' +
-								'<span class="text">$/watt</span>' +
-								'<span class="question_mark light" data-toggle="tooltip" data-placement="bottom" title="Average Cost">?</span>' + 
+							// '<th class="cost">' +
+							// 	'<span class="text">Price Category</span>' +
+							// 	'<span class="question_mark light" data-toggle="tooltip" data-placement="bottom" title="Based on the average cost of systems installed in your County, Value = Bottom 33%, Standard = Middle 33% Premium = Top 33%. Please read FAQ #3 for a more detailed explanation.">?</span>' + 
+							// // '</th>' +
+							// '<th class="avg_cost">' +
+							// 	'<span class="text">$/watt</span>' +
+							// 	'<span class="question_mark light" data-toggle="tooltip" data-placement="bottom" title="Average Cost">?</span>' + 
+							// '</th>' +
+							'<th class="number_of_homes_installed">' +
+								'<span class="text">Total Installed </span>' +
+								'<span class="question_mark light" data-toggle="tooltip" data-placement="bottom" title="Homes in your County that have gone solar with each provider since 2002.">?</span>' +
 							'</th>' +
 							'<th class="number_of_homes_installed">' +
-								'<span class="text">Homes Installed</span>' +
-								'<span class="question_mark light" data-toggle="tooltip" data-placement="bottom" title="Homes in your County that have gone solar with each provider since 2006.">?</span>' +
+								'<span class="text">Recent Installations </span>' +
+								'<span class="question_mark light" data-toggle="tooltip" data-placement="bottom" title="Homes in your County that have gone solar with each provider in the past 3 months.">?</span>' +
 							'</th>' +
 							'<th class="rating">' +
 								'<img src="static/images/yelp_logo_100x50.png" alt="" style="height:30px; width:30px;"/>' +
@@ -46,7 +50,7 @@ sunible.map = (function () {
 
 		},
 		jqueryMap ={},
-		setJqueryMap, generateMap, getGeoData, populateInstallers, installerAvgCost, initModule;
+		setJqueryMap, generateMap, getGeoData, populateInstallers, installerAvgCost, sortTables, initModule;
 
 		// Utility Methods
 		setJqueryMap = function () {
@@ -76,10 +80,15 @@ sunible.map = (function () {
 					});
 					map.on('load', function () {
 						map.zoomTo(13, {'duration':4000, 'animate': true});
+						var el = document.createElement('div');
+						el.className = 'marker';
+						el.style.backgroundImage= 'static/images/marker.png'
+						new mapboxgl.Marker(el)
+								.setLngLat([data_point.lon,data_point.lat])
+								.addTo(map);
 					});
 				}
 			});
-			populateInstallers(zip)
 		};
 		// Populate the table with installers in the database
 		populateInstallers = function (zip) {
@@ -89,48 +98,26 @@ sunible.map = (function () {
 				datatype:'json',
 				data: {'zip_code': zip},
 				success: function (data) {
-					if (data[0] !== undefined) {
-						
-						var area = "Great News! "+data[0].fields.service_county+" County"+" is very "
+					var data = data
+						var area = "Great News! "+data.County+" County"+" is very "
 						jqueryMap.$container.find(".area").append(area+'<em>Sunible!</em>')
-						for (var i = 0; i < data.length; i++)
-						{
-							var installer = '<tr id="install"><td width="50px" height="50px" align="center" style="padding-top: 12px;">'+data[i].fields.installer+'</td></tr>'
+						for (var i = 0; i < data.Installer.length; i++) {
+							var installer = '<tr id="install"><td width="50px" height="50px" align="left" style="padding-top: 12px;">'+data.Installer[i][0]+'</td><td align="center">'+data.Installer[i][2].total_installs+'</td><td align="center">'+data.Installer[i][1]+'</td></tr>'
 							jqueryMap.$container.find("tbody").append(installer);
 							
 						}
 					}
-					else {
-						jqueryMap.$container.find(".inyourarea").text("We don't seem to find any installers in your area.")
-					}
-					installerAvgCost(data);
-				}
 			});
 		}
-		// Populate the table with the installer's average cost
-		installerAvgCost = function(source) {
-			var source = source
-			for (var i = 0; i < source.length; i++) {
-				$.ajax({
-					url: "installavgcost",
-					datatype: 'json',
-					data: {'installer': source[i].fields.installer},
-					success: function (data) {
-						var number_data = data[0].fields.avg_cost
-						var avg_cost = '<td></td><td width="50px" height="50px" align="left" style="padding-top: 12px;">'+number_data.toPrecision(3);+'</td>'
-						jqueryMap.$container.find(".install").append();
-					}
-				});
-			}
-			
-		}
+		// Allow tables to be sorted
+		sortTables = function ()
 		// Public Methods
 		initModule = function ($container,zip) {
 		$container.html(configMap.main_html);
 		stateMap.$container = $container;
 		setJqueryMap();
 		$(document)
-			.ready(getGeoData(zip));
+			.ready(getGeoData(zip),populateInstallers(zip));
 		return true;
 	};
 	return {
