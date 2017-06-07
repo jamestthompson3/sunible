@@ -110,7 +110,6 @@ sunible.map = (function () {
 			});
 		}
 		// Allow tables to be sorted
-		sortTables = function ()
 		// Public Methods
 		initModule = function ($container,zip) {
 		$container.html(configMap.main_html);
