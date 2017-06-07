@@ -18,6 +18,7 @@ HOME_DIR = os.path.join(BASE_DIR,"home/templates")
 STATIC_DIR = os.path.join(BASE_DIR,"static")
 MEDIA_DIR = os.path.join(BASE_DIR,"media")
 ROOT_URLCONF = 'sunible.urls'
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 
 # Quick-start development settings - unsuitable for production
