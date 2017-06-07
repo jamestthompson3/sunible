@@ -23,9 +23,9 @@ sunible.landing = (function () {
 					+'</div>'
 				+'</div>'
 				+'<form class="zip search providers container" id="homepage-search_providers_by_zip-container" action="">'
-					+'<span class="field_container"> <input type="text" class="field zip" id="homepage-field-zip_code" name="zipcode" placeholder="Zip Code" pattern="\d{5}(?:[-\s]\d{4})?" autofocus /> <span class="validation message"></span>'
+					+'<span class="field_container"> <input type="text" style="position: fixed;" class="field zip" id="homepage-field-zip_code" name="zipcode" placeholder="Zip Code" pattern="\d{5}(?:[-\s]\d{4})?" autofocus /> <span class="validation message"></span>'
 					+'</span>'
-					+'<button type="button" class="btn search providers zip" id="homepage-search_providers_by_zip-button">Go</button>'
+					+'<button type="button" style="top: 26em; position: fixed; left: 38.5em;" class="btn search providers zip" id="homepage-search_providers_by_zip-button">Go</button>'
 				+'</form>'
 			+'</section>'
 		+'</div>',

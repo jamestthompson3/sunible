@@ -3,13 +3,24 @@ sunible.map = (function () {
 	var
 		configMap = {
 			main_html: String()
+			+'<div id="loading">'
+				+'<img id="loading-image" src="static/images/loading2.gif" alt="loading..." />'
+			+'</div>'
 			+'<div class="page social_proof" id="page-social_proof" data-page="social_proof">'
 				+'<h1 class="area"></h1>'
-				+'<div id="map" style="width: 90vw; height: 15vw; margin-top: 1em;"></div>'
+				+'<div class="counters" style="position: absolute; z-index: 10; margin-top:12px; background:#fcfcfc; padding:10px; opacity:.9;">'
+							+'<p data-toggle="tooltip" data-placement="bottom" title="Homes in your County that have gone solar since 2002. This number is growing everyday!"><span class="counter total_install_number by_zip"></span> solar homes <br/>in <span class="area_name"></span>'
+							+'</p>'
+							+'</p>'
+							+'<p data-toggle="tooltip" data-placement="bottom" title="These providers have installed solar in at least one home every month in your County recently."><span class="counter total_installers by_zip"></span> active solar providers<br/> in <span class="area_name"></span>'
+							+'</p>'
+						+'</div>'
+				+'<div id="map" style="width: 90vw; height: 20vw; margin-top: 1em;"></div>'
 				// +'<div class="block map">'
 				// 		+'<p>You have selected<br/><span class="counter selected providers number" id="dashboard-block-number_of_providers_selected">0</span><br/>providers</p>'
 				// 		+'<p class="max_length message">30 providers max</p>'
 				// 	+'</div>'
+				+'</div>'
 				      +'<table class="providers list grid" id="dashboard-grid-providers-list">' +
 					'<thead>' +
 						'<tr>' +
@@ -36,10 +47,10 @@ sunible.map = (function () {
 								'<span class="text">Recent Installations </span>' +
 								'<span class="question_mark light" data-toggle="tooltip" data-placement="bottom" title="Homes in your County that have gone solar with each provider in the past 3 months.">?</span>' +
 							'</th>' +
-							'<th class="rating">' +
-								'<img src="static/images/yelp_logo_100x50.png" alt="" style="height:30px; width:30px;"/>' +
-								'<span class="text">Rating</span>' +
-							'</th>' +
+							// '<th class="rating">' +
+							// 	'<img src="static/images/yelp_logo_100x50.png" alt="" style="height:30px; width:30px;"/>' +
+							// 	'<span class="text">Rating</span>' +
+							// '</th>' +
 						'</tr>' +
 					'</thead>' +
 					'<tbody><tr class="installername"></tr></tbody>' +
@@ -101,6 +112,10 @@ sunible.map = (function () {
 					var data = data
 						var area = "Great News! "+data.County+" County"+" is very "
 						jqueryMap.$container.find(".area").append(area+'<em>Sunible!</em>')
+						jqueryMap.$container.find(".counter.total_install_number").text(data.Total_Installs.total_installs)
+						jqueryMap.$container.find(".area_name").text(data.County+" county")
+						jqueryMap.$container.find(".counter.total_installers").text(data.Total_Installers)
+						jqueryMap.$container.find("#loading").css("display","none")
 						for (var i = 0; i < data.Installer.length; i++) {
 							var installer = '<tr id="install"><td width="50px" height="50px" align="left" style="padding-top: 12px;">'+data.Installer[i][0]+'</td><td align="center">'+data.Installer[i][2].total_installs+'</td><td align="center">'+data.Installer[i][1]+'</td></tr>'
 							jqueryMap.$container.find("tbody").append(installer);

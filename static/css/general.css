@@ -41,7 +41,7 @@ h2 { font-size: 28px; }
 table { 
 	width: 100%;
 	position: relative;
-	top: 3em;
+	top: -2em;
 }
 
 	table th.sorting,
@@ -185,7 +185,7 @@ footer,
 	padding: 1px 2px;
 	border-radius: 11px;
 	min-width: 17px;
-	color: white;
+	color: #34495e;
 	text-align: center;
 }
 

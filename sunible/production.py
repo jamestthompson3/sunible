@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'home',
-    
+
 ]
 
 MIDDLEWARE = [
@@ -88,6 +88,11 @@ DATABASES = {
         'PASSWORD': 'sunible2030',
         'HOST': 'sunible.c6vi5bqcq2jo.us-west-2.rds.amazonaws.com',
         'PORT':'5432',
+        # 'OPTIONS': {
+        # 'ssl': {
+        #     'ca': '../rds-combined-ca-bundle.pem',
+        #     }
+        # }
     }
 }
 # LOGGING 

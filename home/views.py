@@ -10,6 +10,10 @@ from django.db.models import F, Sum, Count
 # Create your views here.
 def index(request):
 	return render(request, "index.html")
+def privacy(request):
+	return render(request,"pp.html")
+def tos(request):
+	return render(request,'tos.html')
 # Create a view to populate zip-geo data DB
 def populate(request):
 	f = open('home/installer_db_pop.csv','r')
@@ -41,6 +45,7 @@ def populateInstallerList(request):
 	installer_list = []
 	installer_query = []
 	historic_installs = []
+	total_installs = HistoricInstalls.objects.filter(county=county).aggregate(total_installs=Sum('count'))
 	for item in query:
 		try:
 			query2 = Installer.objects.filter(service_county=county,installer=item.installer).count()
@@ -52,5 +57,5 @@ def populateInstallerList(request):
 			pass
 	result_list = list(zip(installer_list,installer_query,historic_installs))
 	# data = serializers.serialize('json',query)
-	data = json.dumps({"County":county,"Installer":result_list})
+	data = json.dumps({"County":county,"Installer":result_list,"Total_Installers":query.count(),"Total_Installs":total_installs})
 	return HttpResponse(data,'json')

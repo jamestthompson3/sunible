@@ -21,7 +21,7 @@ sunible.shell = (function () {
 						+'<a href="http://blog.sunible.com" target="_blank">Blog</a>'
 						+'<a href="#" class="launcher open contact_us">Contact</a>'
 						+'<a href="#" class="launcher open about_us">About Us</a>'
-						+'<a href="#" class="launcher open terms_of_service">Terms</a>'
+						+'<a href="/privacy">Privacy</a>'
 					+'</nav>'
 					+'<span class="copyright">&copy; Sunible Inc.  2017</span>'
 			+'</footer>'
