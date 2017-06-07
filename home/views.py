@@ -12,13 +12,17 @@ def index(request):
 	return render(request, "index.html")
 # Create a view to populate zip-geo data DB
 def populate(request):
-	f = open('home/rez_counts.csv','r')
+	f = open('home/installer_db_pop.csv','r')
 	for line in f:
 		line = line.split(',')
-		create = HistoricInstalls.objects.create()
-		create.county = line[0]
-		create.installer = line[1]
-		create.count = line[2].strip('\n')
+		create = Installer.objects.create()
+		create.service_county = line[3]
+		create.service_city = line[1]
+		create.dc_size = line[4]
+		create.ac_size = line[5]
+		create.zipcode = line[2]
+		create.installer = line[6]
+		create.cost = line[7].strip('\n')
 		create.save()
 	f.close()
 

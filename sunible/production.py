@@ -14,6 +14,10 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+HOME_DIR = os.path.join(BASE_DIR,"home/templates")
+STATIC_DIR = os.path.join(BASE_DIR,"static")
+MEDIA_DIR = os.path.join(BASE_DIR,"media")
+ROOT_URLCONF = 'sunible.urls'
 
 
 # Quick-start development settings - unsuitable for production
@@ -21,11 +25,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '9_5g7qpr%1d@&-!z339pfmi(c1pox^4o3*e0v$m#7i=($a_(r9'
-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost']
 
 
 # Application definition
@@ -37,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'home',
 ]
 
 MIDDLEWARE = [
@@ -54,7 +58,7 @@ ROOT_URLCONF = 'sunible.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [HOME_DIR],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -75,12 +79,41 @@ WSGI_APPLICATION = 'sunible.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'torrohol_sunible',
-        'USER': 'torrohol_sunible',
-        'PASSWORD': '$aTq#)-B2$a6',
-        'HOST': 'torrohol-sunible.c6vi5bqcq2jo.us-west-2.rds.amazonaws.com',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'sunible',
+        'USER': 'sunible',
+        'PASSWORD': 'sunible2030',
+        'HOST': 'sunible.c6vi5bqcq2jo.us-west-2.rds.amazonaws.com',
         'PORT':'5432',
+    }
+}
+# LOGGING 
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'filters': {
+        'require_debug_false': {
+            '()': 'django.utils.log.RequireDebugFalse'
+        }
+    },
+
+    'handlers': {
+        'mail_admins': {
+            'level': 'ERROR',
+            'filters': ['require_debug_false'],
+            'class': 'django.utils.log.AdminEmailHandler'
+        },
+     'console':{
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        'django.request': {
+            'handlers': ['console'],
+            'level': 'ERROR',
+            'propagate': True,
+        },
     }
 }
 # Password validation
@@ -119,4 +152,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
+STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    STATIC_DIR,
+]
+MEDIA_ROOT = MEDIA_DIR
+MEDIA_URL = '/media/'
+LOGIN_URL = '/sign_in/'

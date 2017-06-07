@@ -5,5 +5,5 @@ urlpatterns=[
 	url(r'^$',views.index,name='home'),
 	url(r'^geozipresponse/$',views.geozipresponse,name='geozipresponse'),
 	url(r'^populateinstallerlist/$',views.populateInstallerList,name='populateinstallerlist'),
-	# url(r'^populate/$',views.populate,name='populate'),
+	url(r'^populate/$',views.populate,name='populate'),
 ]
