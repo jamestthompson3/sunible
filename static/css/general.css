@@ -129,6 +129,7 @@ header,
 footer,
 .page {
 	background-color: transparent;
+	margin-bottom: 1em;
 }
 
 	footer a { font-weight: normal; }
