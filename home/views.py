@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.core import serializers
 from home.models import Zip, Installer,HistoricInstalls
@@ -14,6 +14,8 @@ def privacy(request):
 	return render(request,"pp.html")
 def tos(request):
 	return render(request,'tos.html')
+def blog(request):
+	return HttpResponseRedirect('http://blog.sunible.com')
 # Create a view to populate zip-geo data DB
 def populate(request):
 	f = open('home/rez_counts_installer.csv','r')

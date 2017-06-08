@@ -2,9 +2,8 @@ sunible.landing = (function () {
 	var
 		configMap = {
 			main_html: String()
-				+'<div id="page-homepage" data-page="homepage">'
-			+'<section class="ad teaser container">'
-				+'<div class="teaser">'
+			+'<section class="container">'
+				+'<div class="col-6">'
 					+'<h1>3 steps to Solar Savings with <em>Sunible</em></h1>'
 					+'<div class="block see">'
 						+'<h2>See</h2>'
@@ -23,12 +22,11 @@ sunible.landing = (function () {
 					+'</div>'
 				+'</div>'
 				+'<form class="zip search providers container" id="homepage-search_providers_by_zip-container" action="">'
-					+'<span class="field_container"> <input type="text" style="position: fixed;" class="field zip" id="homepage-field-zip_code" name="zipcode" placeholder="Zip Code" pattern="\d{5}(?:[-\s]\d{4})?" autofocus /> <span class="validation message"></span>'
+					+'<span class="field_container"> <input type="text"" style="position: fixed; margin-top: 1em;" class="field zip" id="homepage-field-zip_code" name="zipcode" placeholder="Zip Code" pattern="\d{5}(?:[-\s]\d{4})?" autofocus /> <span class="validation message"></span>'
 					+'</span>'
-					+'<button type="button" style="top: 26em; position: fixed; left: 46.5em;" class="btn search providers zip" id="homepage-search_providers_by_zip-button">Go</button>'
+					+'<button type="button" style="top: 16em; right: 13em; margin-left: 1.5em;" class="btn search providers zip" id="homepage-search_providers_by_zip-button">Go</button>'
 				+'</form>'
-			+'</section>'
-		+'</div>',
+			+'</section>',
 		settable_map: {}
 		},
 		stateMap = {$container: null},

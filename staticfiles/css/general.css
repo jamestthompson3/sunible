@@ -111,7 +111,10 @@ td {
 .questions {
 	cursor: help;
 }
-.container { width: auto; }
+.container {
+	width: 100%;
+	margin-left: 30vw; 
+}
 
 header,
 footer,
