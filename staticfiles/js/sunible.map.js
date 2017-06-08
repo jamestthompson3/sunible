@@ -112,6 +112,7 @@ sunible.map = (function () {
 				datatype:'json',
 				data: {'zip_code': zip},
 				success: function (data) {
+					console.log(data.Installer[0][0])
 					var data = data
 						var area = "Great News! "+data.County+" County"+" is very "
 						jqueryMap.$container.find(".area").append(area+'<em>Sunible!</em>')
@@ -120,7 +121,7 @@ sunible.map = (function () {
 						jqueryMap.$container.find(".counter.total_installers").text(data.Total_Installers)
 						jqueryMap.$container.find("#loading").css("display","none")
 						for (var i = 0; i < data.Installer.length; i++) {
-							var installer = '<tr><td align="left" style="padding-top: 12px; padding-left: 12px;">'+data.Installer[i][0]+'</td><td align="center">'+data.Installer[i][2].total_installs+'</td><td align="center">'+data.Installer[i][1]+'</td></tr>'
+							var installer = '<tr><td align="left" style="padding-top: 12px; padding-left: 12px;">'+data.Installer[i][0]+'</td><td align="center">'+data.Installer[i][1]+'</td><td align="center">'+data.Installer[i][1]+'</td></tr>'
 							jqueryMap.$container.find("tbody").append(installer);
 							
 						}
