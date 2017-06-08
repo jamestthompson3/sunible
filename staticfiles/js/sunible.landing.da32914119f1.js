@@ -2,7 +2,7 @@ sunible.landing = (function () {
 	var
 		configMap = {
 			main_html: String()
-			+'<section class="container landing">'
+			+'<section class="container">'
 				+'<div class="col-6">'
 					+'<h1>3 steps to Solar Savings with <em>Sunible</em></h1>'
 					+'<div class="block see">'

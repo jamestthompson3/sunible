@@ -41,27 +41,13 @@ em {
 
 h2 { font-size: 28px; }
 
-@media (max-width: 667) {
-table { 
-	width: 90vw;
-	position: relative;
-	top: -5em;
-	left: 2em;
-}
-}
-@media (max-width: 1800) {
 table { 
 	width: 90vw;
 	position: relative;
 	top: -2em;
-	right: 17.5em;
+	left: 4.5em;
 }
-}
-table {
-	width: 90vw;
-	position: relative;
-	right: 7.5em;
-}
+
 	table th.sorting,
 	table th.sorting_desc,
 	table th.sorting_asc { cursor: pointer; }
@@ -256,7 +242,7 @@ footer,
 
 .marker_popup {
 	/*padding-top: 25px;
-	background: transparent url('../images/marker_logo.png') 50% 0 no-repeat;*/
+	background: transparent url("../images/marker_logo.680ec45371bc.png") 50% 0 no-repeat;*/
 	font-size: 12px;
 	text-align: center;
 }

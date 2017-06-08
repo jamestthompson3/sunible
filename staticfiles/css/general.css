@@ -41,13 +41,27 @@ em {
 
 h2 { font-size: 28px; }
 
+@media (max-width: 667) {
+table { 
+	width: 90vw;
+	position: relative;
+	top: -5em;
+	left: 2em;
+}
+}
+@media (max-width: 1800) {
 table { 
 	width: 90vw;
 	position: relative;
 	top: -2em;
-	left: 4.5em;
+	right: 17.5em;
 }
-
+}
+table {
+	width: 90vw;
+	position: relative;
+	right: 7.5em;
+}
 	table th.sorting,
 	table th.sorting_desc,
 	table th.sorting_asc { cursor: pointer; }
@@ -111,7 +125,7 @@ td {
 .questions {
 	cursor: help;
 }
-.container {
+.container.landing {
 	width: 100%;
 	margin-left: 30vw; 
 }
