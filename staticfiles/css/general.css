@@ -57,11 +57,6 @@ table {
 	right: 17.5em;
 }
 }
-table {
-	width: 90vw;
-	position: relative;
-	right: 7.5em;
-}
 	table th.sorting,
 	table th.sorting_desc,
 	table th.sorting_asc { cursor: pointer; }
