@@ -12,6 +12,9 @@ body {
 	background-color: white;
 	min-width: 960px;
 }
+#page-homepage {
+	padding-left: 10em;
+}
 
 a { color: #2980B9;}
 a:hover { color: #fcd728; }
