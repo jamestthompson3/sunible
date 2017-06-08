@@ -21,6 +21,7 @@ sunible.map = (function () {
 				// 		+'<p class="max_length message">30 providers max</p>'
 				// 	+'</div>'
 				+'</div>'
+				+'<div class="container">'
 				      +'<table class="providers list grid" id="dashboard-grid-providers-list">' +
 					'<thead>' +
 						'<tr>' +
@@ -28,7 +29,7 @@ sunible.map = (function () {
 							// 	'<span class="text">Request Quote</span>' +
 							// '</th>' +
 							'<th class="name" align="left" role="columnheader" aria-sort="ascending">' +
-								'<span class="text">Solar Providers </span>' +
+								'<span class="text" style="padding-left: 12px;">Solar Providers </span>' +
 								'<span class="question_mark light" data-toggle="tooltip" data-placement="bottom" title="These providers have installed solar in at least one home every month in your County recently.">?</span>' + 
 							'</th>' +
 							// '<th class="cost">' +
@@ -53,8 +54,10 @@ sunible.map = (function () {
 							// '</th>' +
 						'</tr>' +
 					'</thead>' +
-					'<tbody><tr class="installername"></tr></tbody>' +
+					'<tbody class="install"></tbody>' +
 				'</table>'
+				+'</div>'
+				+'</div>'
 		},
 		stateMap = {
 			$container: null,
@@ -117,7 +120,7 @@ sunible.map = (function () {
 						jqueryMap.$container.find(".counter.total_installers").text(data.Total_Installers)
 						jqueryMap.$container.find("#loading").css("display","none")
 						for (var i = 0; i < data.Installer.length; i++) {
-							var installer = '<tr id="install"><td width="50px" height="50px" align="left" style="padding-top: 12px;">'+data.Installer[i][0]+'</td><td align="center">'+data.Installer[i][2].total_installs+'</td><td align="center">'+data.Installer[i][1]+'</td></tr>'
+							var installer = '<tr><td align="left" style="padding-top: 12px; padding-left: 12px;">'+data.Installer[i][0]+'</td><td align="center">'+data.Installer[i][2].total_installs+'</td><td align="center">'+data.Installer[i][1]+'</td></tr>'
 							jqueryMap.$container.find("tbody").append(installer);
 							
 						}

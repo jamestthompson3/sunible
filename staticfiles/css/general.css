@@ -39,9 +39,10 @@ em {
 h2 { font-size: 28px; }
 
 table { 
-	width: 100%;
+	width: 90vw;
 	position: relative;
 	top: -2em;
+	left: 4.5em;
 }
 
 	table th.sorting,
@@ -58,8 +59,14 @@ th {
 tr {
 	font-size: 15px;
 	margin-top: 15px;
+	margin-bottom: 8px;
 }
-
+.install :hover {
+	background: #ECF0F1;
+}
+td {
+	width: 10%;
+}
 	thead th { font-size: 15px; }
 
 		thead th a { text-decoration: none; }
@@ -70,6 +77,10 @@ tr {
 	.table th {
 		font-weight: normal;
 		text-align: center;
+	}
+	.table tr :hover {
+		background: #ECF0F1;
+
 	}
 
 	.table td {
