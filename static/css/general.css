@@ -49,11 +49,11 @@ table {
 	left: 2em;
 }
 }
-@media (max-width: 1800) {
+@media (min-width: 1200) {
 table { 
 	width: 90vw;
 	position: relative;
-	top: -2em;
+	top: -3em;
 	right: 17.5em;
 }
 }
@@ -70,14 +70,18 @@ th {
 }
 tr {
 	font-size: 15px;
-	margin-top: 15px;
-	margin-bottom: 8px;
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
-.install :hover {
+tbody :nth-child(even) {
+	background-color: #ECF0F1;
+}
+/*.install :hover {
 	background: #ECF0F1;
-}
+}*/
 td {
 	width: 10%;
+	background-color: transparent !important;
 }
 	thead th { font-size: 15px; }
 

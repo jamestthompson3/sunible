@@ -20,6 +20,6 @@ from django.conf import settings
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
+    url(r'^codenamesolaris/', admin.site.urls),
     url(r'^',include("home.urls",namespace='home')),
 ]
