@@ -17,7 +17,7 @@ sunible.shell = (function () {
 			+'<div class="footer-margin"></div>'
 			+'<footer class="page_footer homepage social_proof dashboard registration message thank_you thank_you_reg">'
 					+'<nav class="bottom navigation">'
-						+'<a href="#" class="launcher open faqs">FAQs</a>'
+						+'<a href="http://blog.sunible.com/solar-faq" class="launcher open faqs">FAQ</a>'
 						+'<a href="http://blog.sunible.com" target="_blank">Blog</a>'
 						+'<a href="#" class="launcher open contact_us">Contact</a>'
 						+'<a href="#" class="launcher open about_us">About Us</a>'

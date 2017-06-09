@@ -49,10 +49,25 @@ header.page_header,
 	display: block;
 	margin: 0 5%;
 }
+.marker {
+	display: none;
+	border: none;
+	cursor: pointer;
+	padding: 0;
+	height: 30px;
+	width: 30px;
+}
 
+@media (min-width: 1200) {
 .page {
 	padding-top: 10px;
-	padding-bottom: 60px;
+	padding-bottom: 30px;
+	overflow: visible;
+}
+}
+.page {
+	padding-top: 10px;
+	padding-bottom: 30px;
 	overflow: visible;
 }
 

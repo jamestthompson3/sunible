@@ -15,7 +15,7 @@ sunible.map = (function () {
 							+'<p data-toggle="tooltip" data-placement="bottom" title="These providers have installed solar in at least one home every month in your County recently."><span class="counter total_installers by_zip"></span> active solar providers<br/> in <span class="area_name"></span>'
 							+'</p>'
 						+'</div>'
-				+'<div id="map" style="width: 90vw; height: 20vw; margin-top: 1em;"></div>'
+				+'<div id="map" style="width: 90vw; height: 25vw; margin-top: 1em;"></div>'
 				// +'<div class="block map">'
 				// 		+'<p>You have selected<br/><span class="counter selected providers number" id="dashboard-block-number_of_providers_selected">0</span><br/>providers</p>'
 				// 		+'<p class="max_length message">30 providers max</p>'
@@ -92,14 +92,15 @@ sunible.map = (function () {
 						zoom: 6,
 						center: [data_point.lon,data_point.lat]
 					});
-					map.on('load', function () {
-						map.zoomTo(13, {'duration':4000, 'animate': true});
-						var el = document.createElement('div');
+					var el = document.createElement('div');
 						el.className = 'marker';
-						el.style.backgroundImage= 'static/images/marker.png'
+						el.style.backgroundImage = 'url("static/images/marker.png")';
 						new mapboxgl.Marker(el)
 								.setLngLat([data_point.lon,data_point.lat])
 								.addTo(map);
+					map.on('load', function () {
+						map.zoomTo(13, {'duration':4000, 'animate': true});
+						jqueryMap.$container.find(".marker").delay(4000).fadeIn(300);
 					});
 				}
 			});
@@ -112,7 +113,6 @@ sunible.map = (function () {
 				datatype:'json',
 				data: {'zip_code': zip},
 				success: function (data) {
-					console.log(data.Installer[0][0])
 					var data = data
 						var area = "Great News! "+data.County+" County"+" is very "
 						jqueryMap.$container.find(".area").append(area+'<em>Sunible!</em>')
@@ -121,7 +121,7 @@ sunible.map = (function () {
 						jqueryMap.$container.find(".counter.total_installers").text(data.Total_Installers)
 						jqueryMap.$container.find("#loading").css("display","none")
 						for (var i = 0; i < data.Installer.length; i++) {
-							var installer = '<tr><td align="left" style="padding-top: 12px; padding-left: 12px;">'+data.Installer[i][0]+'</td><td align="center">'+data.Installer[i][1]+'</td><td align="center">'+data.Installer[i][1]+'</td></tr>'
+							var installer = '<tr><td align="left" style="padding-top: 8px; padding-left: 12px; padding-bottom: 8px;">'+data.Installer[i][0]+'</td><td align="center">'+data.Installer[i][1]+'</td><td align="center">'+data.Installer[i][1]+'</td></tr>'
 							jqueryMap.$container.find("tbody").append(installer);
 							
 						}
