@@ -29,7 +29,7 @@ SECRET_KEY = '9_5g7qpr%1d@&-!z339pfmi(c1pox^4o3*e0v$m#7i=($a_(r9'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['localhost','sunible.com','sunible.herokuapp.com']
+ALLOWED_HOSTS = ['localhost','sunible.com','sunible.herokuapp.com','staging.sunible.herokuapp.com','staging.sunible.com']
 
 
 # Application definition
