@@ -3,25 +3,26 @@ sunible.map = (function () {
 	var
 		configMap = {
 			main_html: String()
-			+'<div id="loading">'
-				+'<img id="loading-image" src="static/images/loading2.gif" alt="loading..." />'
-			+'</div>'
+			// +'<div id="loading">'
+			// 	+'<img id="loading-image" src="static/images/loading2.gif" alt="loading..." />'
+			// +'</div>'
 			+'<div class="page social_proof" id="page-social_proof" data-page="social_proof">'
 				+'<h1 class="area"></h1>'
-				+'<div class="counters" style="position: absolute; z-index: 10; margin-top:12px; background:#fcfcfc; padding:10px; opacity:.9;">'
-							+'<p data-toggle="tooltip" data-placement="bottom" title="Homes in your County that have gone solar since 2002. This number is growing everyday!"><span class="counter total_install_number by_zip"></span> solar homes <br/>in <span class="area_name"></span>'
-							+'</p>'
-							+'</p>'
-							+'<p data-toggle="tooltip" data-placement="bottom" title="These providers have installed solar in at least one home every month in your County recently."><span class="counter total_installers by_zip"></span> active solar providers<br/> in <span class="area_name"></span>'
-							+'</p>'
+				+'<div class="counters" style="position: absolute; z-index: 10; margin-top: 1em; background:#fcfcfc; padding:10px; opacity:.9;">'
+							+'<h4 data-toggle="tooltip" data-placement="bottom" title="Homes in your County that have gone solar since 2002. This number is growing everyday!"><span class="counter total_install_number by_zip"></span> solar homes <br/>in <span class="area_name"></span>'
+							+'</h4>'
+							+'</h4>'
 						+'</div>'
-				+'<div id="map" style="width: 90vw; height: 25vw; margin-top: 1em;"></div>'
+						+'<div class="counters" style="position: absolute; z-index: 10; margin-top:1em; left: 70vw; background:#fcfcfc; padding:10px; opacity:.9;">'
+							+'<h4 data-toggle="tooltip" data-placement="bottom" title="These providers have installed solar in at least one home every month in your County recently."><span class="counter total_installers by_zip"></span> active solar providers<br/> in <span class="area_name"></span>'
+							+'</h4>'
+						+'</div>'
 				// +'<div class="block map">'
 				// 		+'<p>You have selected<br/><span class="counter selected providers number" id="dashboard-block-number_of_providers_selected">0</span><br/>providers</p>'
 				// 		+'<p class="max_length message">30 providers max</p>'
 				// 	+'</div>'
 				+'</div>'
-				+'<div class="container">'
+				+'<div class="installer container" style="margin-top: -10em; margin-left: 13vw;">'
 				      +'<table class="providers list grid" id="dashboard-grid-providers-list">' +
 					'<thead>' +
 						'<tr>' +
@@ -77,7 +78,7 @@ sunible.map = (function () {
 		
 		// DOM METHODS
 		// Create a method to get the geodata from the backend
-		getGeoData = function (zip) {
+		getGeoData = function (zip, map) {
 			var zip = zip
 			$.ajax({
 				url:"geozipresponse",
@@ -85,23 +86,15 @@ sunible.map = (function () {
 				data: {'zip_code': zip},
 				success: function (data) {
 					var data_point = data[0].fields
-					mapboxgl.accessToken = 'pk.eyJ1Ijoic3VuaWJsZSIsImEiOiJjajNlcHhkb2cwMGw3MndvZWNtc3JiOXdyIn0.gFGcHN9P5Qh6dqPFzFbwog';
-					var map = new mapboxgl.Map({
-						container: "map",
-						style: 'mapbox://styles/mapbox/streets-v9',
-						zoom: 6,
-						center: [data_point.lon,data_point.lat]
-					});
 					var el = document.createElement('div');
 						el.className = 'marker';
-						el.style.backgroundImage = 'url("static/images/marker.png")';
+						el.style.backgroundImage = 'url("../static/images/marker.png")';
 						new mapboxgl.Marker(el)
 								.setLngLat([data_point.lon,data_point.lat])
 								.addTo(map);
-					map.on('load', function () {
+						map.setCenter([data_point.lon, data_point.lat]);
 						map.zoomTo(13, {'duration':4000, 'animate': true});
-						jqueryMap.$container.find(".marker").delay(4000).fadeIn(300);
-					});
+						$(document).find(".marker").delay(4000).fadeIn(300);
 				}
 			});
 		};
@@ -130,12 +123,12 @@ sunible.map = (function () {
 		}
 		// Allow tables to be sorted
 		// Public Methods
-		initModule = function ($container,zip) {
+		initModule = function ($container,zip,map) {
 		$container.html(configMap.main_html);
 		stateMap.$container = $container;
 		setJqueryMap();
 		$(document)
-			.ready(getGeoData(zip),populateInstallers(zip));
+			.ready(populateInstallers(zip),getGeoData(zip,map));
 		return true;
 	};
 	return {

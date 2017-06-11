@@ -32,7 +32,7 @@ sunible.landing = (function () {
 		stateMap = {$container: null},
 		jqueryMap = {},
 
-		setJqueryMap, configModule, initModule, getInstallerByZip;
+		setJqueryMap, configModule, initModule, loadMap, getInstallerByZip;
 	// DOM Methods
 	setJqueryMap = function() {
 		var $container = stateMap.$container;
@@ -51,6 +51,16 @@ sunible.landing = (function () {
 		alert("Please enter a Valid Zip")
 	}
 	};
+	// Load Map
+	// loadMap = (function () {
+	// 	mapboxgl.accessToken = 'pk.eyJ1Ijoic3VuaWJsZSIsImEiOiJjajNlcHhkb2cwMGw3MndvZWNtc3JiOXdyIn0.gFGcHN9P5Qh6dqPFzFbwog';
+	// 	var map = new mapboxgl.Map({
+	// 		container: "map",
+	// 		style: 'mapbox://styles/mapbox/streets-v9',
+	// 		zoom: 5,
+	// 		center: [-121.4944, 38.5816]
+	// 	});
+	// });
 	// Public config methods
 	configModule = function (input_map) {
 		sunible.util.setConfigMap({

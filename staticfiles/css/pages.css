@@ -208,7 +208,7 @@ footer.page_footer {
 
 /* non-stretching map */
 
-.page.social_proof { margin-top: -20px;}
+.page.social_proof { margin-top: -9em; margin-left: 16vw;}
 
 	.page.social_proof h1 {
 		text-align: center;

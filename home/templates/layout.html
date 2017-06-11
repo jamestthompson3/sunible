@@ -33,20 +33,50 @@
 <script src="{% static 'js/sunible.util.js' %}"></script>
 <script src="{% static 'js/sunible.landing.js' %}"></script>
 <script src="{% static 'js/sunible.map.js' %}"></script>
-<script>
-	$ (function () {
-		sunible.initModule($('#pages'));
-	});
-</script>
-<!-- <script>
-  !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="4.0.0";
-  analytics.load("48wsMbDYdLuJ6bN29vOCNSqGZXkBhaH9");
-  analytics.page();
-  }}();
-</script> -->
 </head>
 <body>
-<div id="pages"></div>
+	<header class="page_header homepage dashboard social_proof registration message thank_you thank_you_reg">
+				<div class="questions">
+					<span class="question why_solar" data-toggle="tooltip" data-placement="bottom" title="A solar-powered home can lower your electricity bills from day one, which is why over 300,000 homeowners in the U.S. have gone solar! Also, the Sun is the cleanest, most abundant source of energy on earth."> Why solar?
+					</span>
+					<span class="question why_sunible" data-toggle="tooltip" data-placement="bottom" title="There are a lot of solar installers to choose from, but there is no easy way to find, compare and select the right one. We will help you from start to finish, and answer every question you have along the way (and yes, for free!)"> Why Sunible?</span>
+					<button type="button" class="btn call_us" disabled> Questions?<br/> 1 (800) 979-2215</button>
+				</div>
+				<a href="/" class="logo sunible"><img src="{% static 'images/logo_sunible.png' %}"/></a>
+			</header>
+<h2 style="margin-left: 36vw; margin-bottom: 1em;"><em>Sunible:</em> Solar Made Simple!</h2>
+<div>
+<form>
+	<input type="text" name="search" id="search" placeholder="Enter your zipcode to find solar installers near you">
+	<button type="button" class="btn search providers zip" id="zip_search" style="position: absolute; z-index: 100; left:67vw; top: 9.5em; box-shadow: 5px 5px 5px #c4c4c4;">GO</button>
+	</form>
+</div>
+<div id="map"></div>
+<div id="info" style="position: absolute; top: 55vw;">
+	<h3 class="welcome">Enter your zip and see <em>all</em> of the installers in your area here!</h3>
+</div>
+<script>
+$ (function() {
+	mapboxgl.accessToken = 'pk.eyJ1Ijoic3VuaWJsZSIsImEiOiJjajNlcHhkb2cwMGw3MndvZWNtc3JiOXdyIn0.gFGcHN9P5Qh6dqPFzFbwog';
+	var map = new mapboxgl.Map({
+		container: "map",
+		style: 'mapbox://styles/mapbox/streets-v9',
+		zoom: 5,
+		center: [-121.4944, 38.5816]
+	});
+
+		$("#zip_search").click(function(){
+			var zip = $("#search").val();
+			if (/(^\d{5}$)|(^\d{5}-\d{4}$)/.test(zip) === true) {
+				
+				sunible.map.initModule($("#info"),zip,map);
+
+	}
+			else {
+				alert("Please enter a Valid Zip");
+			}
+	});
+});
 </script>
 </body>
 </html>

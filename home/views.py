@@ -9,13 +9,15 @@ from django.db.models import F, Sum, Count
 
 # Create your views here.
 def index(request):
-	return render(request, "index.html")
+	return render(request, "layout.html")
 def privacy(request):
 	return render(request,"pp.html")
 def tos(request):
 	return render(request,'tos.html')
 def blog(request):
 	return HttpResponseRedirect('http://blog.sunible.com')
+def layout(request):
+	return render(request,"layout.html")
 # Create a view to populate zip-geo data DB
 def populate(request):
 	f = open('home/rez_counts_installer.csv','r')

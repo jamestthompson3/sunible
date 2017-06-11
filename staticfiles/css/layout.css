@@ -57,11 +57,28 @@ header.page_header,
 	height: 30px;
 	width: 30px;
 }
+#map { position: absolute; top:18em; bottom:0; width: 100vw; height: 26vw;}
+#search {position: absolute; z-index: 99; top: 13em; left: 36vw; width: 30vw; box-shadow: 5px 5px 5px #c4c4c4;}
+@media (max-width: 667) {
+.welcome {
+	margin-left: 15vw;
+	margin-top: -2em;
 
+}
+}
+.welcome {
+	margin-left: 23vw;
+	margin-top: -5em;
+}
+.installer .table {
+	position: absolute;
+	width: 100%;
+	left: 19em;
+	top: 6em;
+}
 @media (min-width: 1200) {
 .page {
 	padding-top: 10px;
-	padding-bottom: 30px;
 	overflow: visible;
 }
 }
