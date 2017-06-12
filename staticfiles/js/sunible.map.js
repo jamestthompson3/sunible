@@ -8,12 +8,12 @@ sunible.map = (function () {
 			// +'</div>'
 			+'<div class="page social_proof" id="page-social_proof" data-page="social_proof">'
 				+'<h1 class="area"></h1>'
-				+'<div class="counters" style="position: absolute; z-index: 10; margin-top: 1em; background:#fcfcfc; padding:10px; opacity:.9;">'
+				+'<div class="counters">'
 							+'<h4 data-toggle="tooltip" data-placement="bottom" title="Homes in your County that have gone solar since 2002. This number is growing everyday!"><span class="counter total_install_number by_zip"></span> solar homes <br/>in <span class="area_name"></span>'
 							+'</h4>'
 							+'</h4>'
 						+'</div>'
-						+'<div class="counters" style="position: absolute; z-index: 10; margin-top:1em; left: 70vw; background:#fcfcfc; padding:10px; opacity:.9;">'
+						+'<div class="counters" style="left: 60vw;">'
 							+'<h4 data-toggle="tooltip" data-placement="bottom" title="These providers have installed solar in at least one home every month in your County recently."><span class="counter total_installers by_zip"></span> active solar providers<br/> in <span class="area_name"></span>'
 							+'</h4>'
 						+'</div>'
@@ -31,7 +31,7 @@ sunible.map = (function () {
 							// '</th>' +
 							'<th class="name" align="left" role="columnheader" aria-sort="ascending">' +
 								'<span class="text" style="padding-left: 12px;">Solar Providers </span>' +
-								'<span class="question_mark light" data-toggle="tooltip" data-placement="bottom" title="These providers have installed solar in at least one home every month in your County recently.">?</span>' + 
+								'<span class="question_mark light" data-toggle="tooltip" id="solar_providers" data-placement="bottom" title="These providers have installed solar in at least one home every month in your County recently.">?</span>' + 
 							'</th>' +
 							// '<th class="cost">' +
 							// 	'<span class="text">Price Category</span>' +
@@ -43,11 +43,11 @@ sunible.map = (function () {
 							// '</th>' +
 							'<th class="number_of_homes_installed">' +
 								'<span class="text">Total Installed </span>' +
-								'<span class="question_mark light" data-toggle="tooltip" data-placement="bottom" title="Homes in your County that have gone solar with each provider since 2002.">?</span>' +
+								'<span class="question_mark light" data-placement="bottom" title="Homes in your county that have gone solar with each provider since 2002.">?</span>' +
 							'</th>' +
 							'<th class="number_of_homes_installed">' +
 								'<span class="text">Recent Installations </span>' +
-								'<span class="question_mark light" data-toggle="tooltip" data-placement="bottom" title="Homes in your County that have gone solar with each provider in the past 3 months.">?</span>' +
+								'<span class="question_mark light" data-toggle="tooltip" data-placement="bottom" title="Homes in your county that have gone solar with each provider in the past 3 months.">?</span>' +
 							'</th>' +
 							// '<th class="rating">' +
 							// 	'<img src="static/images/yelp_logo_100x50.png" alt="" style="height:30px; width:30px;"/>' +
@@ -58,6 +58,16 @@ sunible.map = (function () {
 					'<tbody class="install"></tbody>' +
 				'</table>'
 				+'</div>'
+				+'<footer class="page_footer homepage social_proof dashboard registration message thank_you thank_you_reg" style="top: 0; left: 11vw; position: relative;">'
+					+'<nav class="bottom navigation">'
+						+'<a href="http://blog.sunible.com/solar-faq" class="launcher open faqs">FAQ</a>'
+						+'<a href="http://blog.sunible.com" target="_blank">Blog</a>'
+						+'<a href="#" class="launcher open contact_us">Contact</a>'
+						+'<a href="#" class="launcher open about_us">About Us</a>'
+						+'<a href="/privacy">Privacy</a>'
+					+'</nav>'
+					+'<span class="copyright">&copy; Sunible Inc.  2017</span>'
+			+'</footer>'
 				+'</div>'
 		},
 		stateMap = {

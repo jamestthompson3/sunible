@@ -37,6 +37,7 @@ body {
 footer.page_footer {
 	position: absolute;
 	left: 0;
+	top: 85vw;
 	z-index: 6;
 	width: 100%;
 	display: block;
@@ -57,8 +58,15 @@ header.page_header,
 	height: 30px;
 	width: 30px;
 }
-#map { position: absolute; top:18em; bottom:0; width: 100vw; height: 26vw;}
-#search {position: absolute; z-index: 99; top: 13em; left: 36vw; width: 30vw; box-shadow: 5px 5px 5px #c4c4c4;}
+#zip_search {
+	position: absolute; 
+	z-index: 100; 
+	left:67vw; 
+	top: 11.4vw; 
+	box-shadow: 5px 5px 5px #c4c4c4;
+}
+#map { position: absolute; top:15vw; bottom:0; width: 100vw; height: 26vw; box-shadow: 5px 5px 5px #c4c4c4;}
+#search {position: absolute; z-index: 99; top: 12vw; left: 36vw; width: 30vw; box-shadow: 5px 5px 5px #c4c4c4;}
 @media (max-width: 667) {
 .welcome {
 	margin-left: 15vw;
