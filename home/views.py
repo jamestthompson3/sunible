@@ -46,7 +46,8 @@ def populateInstallerList(request):
 	count_list = []
 	total_installs = HistoricInstalls.objects.filter(county=county).aggregate(total_installs=Sum('count'))
 	for item in query:
-		installer_list.append((item.installer,item.count))
+		query2 = HistoricInstalls.objects.filter(county=county, installer=item.installer).aggregate(historic=Sum('count'))
+		installer_list.append((item.installer,item.count,query2))
 	# for item in query:
 	# 	try:
 	# 		query2 = Installer.objects.filter(service_county=county,installer=item.installer).count()

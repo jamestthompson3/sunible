@@ -13,7 +13,7 @@ sunible.map = (function () {
 							+'</h4>'
 							+'</h4>'
 						+'</div>'
-						+'<div class="counters" style="left: 60vw;">'
+						+'<div class="counters-right">'
 							+'<h4 data-toggle="tooltip" data-placement="bottom" title="These providers have installed solar in at least one home every month in your County recently."><span class="counter total_installers by_zip"></span> active solar providers<br/> in <span class="area_name"></span>'
 							+'</h4>'
 						+'</div>'
@@ -22,7 +22,7 @@ sunible.map = (function () {
 				// 		+'<p class="max_length message">30 providers max</p>'
 				// 	+'</div>'
 				+'</div>'
-				+'<div class="installer container" style="margin-top: -10em; margin-left: 13vw;">'
+				+'<div class="installer-container">'
 				      +'<table class="providers list grid" id="dashboard-grid-providers-list">' +
 					'<thead>' +
 						'<tr>' +
@@ -117,6 +117,7 @@ sunible.map = (function () {
 				data: {'zip_code': zip},
 				success: function (data) {
 					var data = data
+					console.log(data.Installer[0][2].historic)
 						var area = "Great News! "+data.County+" County"+" is very "
 						jqueryMap.$container.find(".area").append(area+'<em>Sunible!</em>')
 						jqueryMap.$container.find(".counter.total_install_number").text(data.Total_Installs.total_installs)
@@ -124,7 +125,7 @@ sunible.map = (function () {
 						jqueryMap.$container.find(".counter.total_installers").text(data.Total_Installers)
 						jqueryMap.$container.find("#loading").css("display","none")
 						for (var i = 0; i < data.Installer.length; i++) {
-							var installer = '<tr><td align="left" style="padding-top: 8px; padding-left: 12px; padding-bottom: 8px;">'+data.Installer[i][0]+'</td><td align="center">'+data.Installer[i][1]+'</td><td align="center">'+data.Installer[i][1]+'</td></tr>'
+							var installer = '<tr><td align="left" style="padding-top: 8px; padding-left: 12px; padding-bottom: 8px;">'+data.Installer[i][0]+'</td><td align="center">'+data.Installer[i][2].historic+'</td><td align="center">'+data.Installer[i][1]+'</td></tr>'
 							jqueryMap.$container.find("tbody").append(installer);
 							
 						}

@@ -41,7 +41,7 @@ em {
 
 h2 { font-size: 28px; }
 
-@media (max-width: 667) {
+@media (max-width: 667px) {
 table { 
 	width: 90vw;
 	position: relative;
@@ -49,13 +49,53 @@ table {
 	left: 2em;
 }
 }
-@media (min-width: 1200) {
-table { 
-	width: 90vw;
-	position: relative;
-	top: -3em;
-	right: 17.5em;
+@media (min-width: 1200px) {
+.counters {
+	position: absolute;
+	z-index: 10;
+	padding:10px;
+	width: 15vw;
+	left: 5vw;
+	margin-top: 3vw;
 }
+.counters-right {
+	position: absolute;
+	z-index: 10;
+	padding:10px;
+	width: 15vw;
+	left: 79vw;
+	margin-top: 3vw;
+}
+	footer.page_footer .bottom.navigation  {
+		text-align: center;
+		margin-top: 3em;
+		margin-left: -17vw;
+	}
+		footer.page_footer .copyright {
+		display: block;
+		overflow: hidden;
+		font-size: 12px;
+		color: #BDC3C7;
+		text-align: center;
+		margin-left: -18vw;
+	}
+
+}
+.counters {
+	position: absolute;
+	z-index: 10;
+	padding:10px;
+	width: 15vw;
+	left: 5vw;
+	margin-top: 3vw;
+}
+.counters-right {
+	position: absolute;
+	z-index: 10;
+	padding:10px;
+	width: 15vw;
+	left: 79vw;
+	margin-top: 2vw;
 }
 	table th.sorting,
 	table th.sorting_desc,
@@ -128,14 +168,20 @@ td {
 	width: 100%;
 	margin-left: 30vw; 
 }
-.counters {
+/*.counters {
 	position: absolute;
 	z-index: 10;
-	background:#fcfcfc;
 	padding:10px;
 	width: 15vw;
 	left: 13vw;
 }
+.counters-right {
+	position: absolute;
+	z-index: 10;
+	padding:10px;
+	width: 15vw;
+	left: 60vw;
+}*/
 header,
 footer,
 .page {

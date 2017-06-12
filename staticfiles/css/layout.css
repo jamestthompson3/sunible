@@ -58,16 +58,55 @@ header.page_header,
 	height: 30px;
 	width: 30px;
 }
+.installer-container {
+	margin-top: -13vw;
+	margin-left: 5vw;
+	margin-right: 5vw;
+}
 #zip_search {
 	position: absolute; 
 	z-index: 100; 
 	left:67vw; 
-	top: 11.4vw; 
+	top: 15.2vw; 
 	box-shadow: 5px 5px 5px #c4c4c4;
 }
-#map { position: absolute; top:15vw; bottom:0; width: 100vw; height: 26vw; box-shadow: 5px 5px 5px #c4c4c4;}
-#search {position: absolute; z-index: 99; top: 12vw; left: 36vw; width: 30vw; box-shadow: 5px 5px 5px #c4c4c4;}
-@media (max-width: 667) {
+#map { 
+	position: absolute; 
+	top:19vw; 
+	bottom:0; 
+	width: 90vw; 
+	height: 26vw; 
+	box-shadow: 2px 4px 15px 1px #c4c4c4;
+	border-radius: 7px;
+	left: 5vw;
+}
+#search {
+	position: absolute; 
+	z-index: 99; 
+	top: 16vw; 
+	left: 36vw; 
+	width: 30vw; 
+	box-shadow: 5px 5px 5px #c4c4c4;
+}
+@media (min-width: 1200px) {
+	#search {
+	position: absolute; 
+	z-index: 99; 
+	top: 13vw; 
+	left: 35vw; 
+	width: 30vw; 
+	box-shadow: 5px 5px 5px #c4c4c4;
+}
+	#zip_search {
+	position: absolute; 
+	z-index: 100; 
+	left:66vw; 
+	top: 12.3vw; 
+	box-shadow: 5px 5px 5px #c4c4c4;
+}
+
+}
+@media (max-width: 667px) {
 .welcome {
 	margin-left: 15vw;
 	margin-top: -2em;
