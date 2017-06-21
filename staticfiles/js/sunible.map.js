@@ -117,7 +117,7 @@ sunible.map = (function () {
 				data: {'zip_code': zip},
 				success: function (data) {
 					var data = data
-					console.log(data.Installer[0][2].historic)
+					jqueryMap.$container.show();
 						var area = "Great News! "+data.County+" County"+" is very "
 						jqueryMap.$container.find(".area").append(area+'<em>Sunible!</em>')
 						jqueryMap.$container.find(".counter.total_install_number").text(data.Total_Installs.total_installs)
@@ -135,6 +135,7 @@ sunible.map = (function () {
 		// Allow tables to be sorted
 		// Public Methods
 		initModule = function ($container,zip,map) {
+		$container.hide();
 		$container.html(configMap.main_html);
 		stateMap.$container = $container;
 		setJqueryMap();

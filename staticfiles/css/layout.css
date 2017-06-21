@@ -36,7 +36,7 @@ body {
 }
 footer.page_footer {
 	position: absolute;
-	left: 0;
+	left: 9vw;
 	top: 85vw;
 	z-index: 6;
 	width: 100%;
